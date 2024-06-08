@@ -1,5 +1,5 @@
 {$define work }
-{$undef work }     { raus fr arbeiten (work) }
+{$undef work }     { raus fÃ¼r arbeiten (work) }
 
 {$ifndef work }
 {$A+,B-,D-,E-,F-,I-,L-,N-,O-,R-,S-,V-}
@@ -60,7 +60,7 @@ begin
     for i:=0 to 9 do
       case was[i,j] of
         0 : write(' ');
-        1 : write('Û');
+        1 : write('â–ˆ');
         2 : write('K');
         3 : write('X');
       end;
@@ -140,8 +140,8 @@ begin
   j:=0;
   repeat
 
-    gotoxy(29,j+2);   write('×');
-    gotoxy(40,j+2);   write('×');
+    gotoxy(29,j+2);   write('â•«');
+    gotoxy(40,j+2);   write('â•«');
 
     i:=0;
     repeat
@@ -177,8 +177,8 @@ begin
         inc(i);
     until (i>9) or found;
 
-    gotoxy(29,j+2);   write('º');
-    gotoxy(40,j+2);   write('º');
+    gotoxy(29,j+2);   write('â•‘');
+    gotoxy(40,j+2);   write('â•‘');
 
     if not found then
       inc(j);
@@ -197,7 +197,7 @@ begin
     ypos:=j;
   end;
 end;
-{ damit enth„lt mfeld die derzeitige lage der gefundendn kontur,
+{ damit enthÃ¤lt mfeld die derzeitige lage der gefundendn kontur,
   xpos, ypos die ecke,
   kont die konturnummer
   und found ist true wenn gefunden }
@@ -219,27 +219,27 @@ Var i, j,
     t:=0;
 
 (*
-    for i:=0 to 9 do                  { punkte fr jedes feld }
+    for i:=0 to 9 do                  { punkte fÃ¼r jedes feld }
       for j:=1 to 19 do
         if feld[i,j]<>0
           then inc(t,j*3);
 
-    for i:=0 to 9 do                  { zwei bereinander }
+    for i:=0 to 9 do                  { zwei Ã¼bereinander }
       for j:=1 to 18 do
         if (feld[i,j]<>0) and (feld[i,j+1]<>0)
           then inc(t);
 *)
-    for i:=0 to 9 do                  { punkte fr jedes feld }
+    for i:=0 to 9 do                  { punkte fÃ¼r jedes feld }
       for j:=1 to 19 do
         if feld[i,j]<>0
           then inc(t,j*12);
 
-    for i:=0 to 9 do                  { zwei bereinander }
+    for i:=0 to 9 do                  { zwei Ã¼bereinander }
       for j:=1 to 18 do
         if (feld[i,j]<>0) and (feld[i,j+1]<>0)
           then inc(t,j*3);
 
-    for i:=0 to 9 do                  { zwei bereinander }
+    for i:=0 to 9 do                  { zwei Ã¼bereinander }
       for j:=1 to 17 do
         if (feld[i,j]<>0) and (feld[i,j+1]<>0) and (feld[i,j+2]<>0)
           then inc(t);
@@ -391,16 +391,16 @@ begin
     merky:=wherey;
     screenc:=screen;
 
-    gotoxy(1,6);  write('ÉÍÍÍÍÍÍÍÍÍÍ»');
-    gotoxy(1,7);  write('ºTETRIS    º');
-    gotoxy(1,8);  write('º    spieltº');
-    gotoxy(1,9);  write('ÈÍÍÍÍÍÍÍÍÍÍ¼');
+    gotoxy(1,6);  write('â•”â•â•â•â•â•â•â•â•â•â•â•—');
+    gotoxy(1,7);  write('â•‘TETRIS    â•‘');
+    gotoxy(1,8);  write('â•‘    spieltâ•‘');
+    gotoxy(1,9);  write('â•šâ•â•â•â•â•â•â•â•â•â•â•');
     for i:=2 to 22 do begin
-      gotoxy(29,i); write('º');
-      gotoxy(40,i); write('º');
+      gotoxy(29,i); write('â•‘');
+      gotoxy(40,i); write('â•‘');
     end;
     gotoxy(29,22);
-    write('ÈÍÍÍÍÍÍÍÍÍÍ¼');
+    write('â•šâ•â•â•â•â•â•â•â•â•â•â•');
 
     getfeld;
 
@@ -443,14 +443,14 @@ begin
 
   textcolor(red);
 
-  gotoxy(17,5); write('Û');
-  gotoxy(17,4); write('ÛÛÛ');
+  gotoxy(17,5); write('â–ˆ');
+  gotoxy(17,4); write('â–ˆâ–ˆâ–ˆ');
 
 
   randomize;
   for i:=1 to 28 do begin
     gotoxy(16+random(10),15+random(7));
-    write('Û');
+    write('â–ˆ');
   end;
 
 end;
@@ -461,9 +461,9 @@ end;
 begin
   aktiv:=false;
 
-  writeln('ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»');
-  writeln('ºLaá TETRIS spielenº');
-  writeln('ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼');
+  writeln('â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—');
+  writeln('â•‘LaÃŸ TETRIS spielenâ•‘');
+  writeln('â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
 
 {$ifdef work }
   machpseudo;
